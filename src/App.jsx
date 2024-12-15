@@ -1,7 +1,24 @@
+import { HelloWorld } from './chapter1-introduction-to-react/functional-components/HelloWorld.jsx';
+import {GreetUser} from './chapter1-introduction-to-react/functional-components/GreetUser.jsx'
+import {Counter} from './chapter1-introduction-to-react/state/Counter.jsx';
+import ToggleEvent from './chapter1-introduction-to-react/state/ToggleSwitch.jsx';
+import WelcomeMessage from './chapter1-introduction-to-react/props/WelcomeMessage.jsx';
+import ProductCard from './chapter1-introduction-to-react/props/ProductCard.jsx';
+
+
 function App() {
   return (
-    <div className="App">
-      <h1>Hello, World!</h1>
+    <div>
+      <HelloWorld />    
+      <GreetUser />  
+      <Counter/>  
+      <ToggleEvent/>
+      <WelcomeMessage name="Nandhu"/>
+      <ProductCard 
+      name="Smartphone" 
+      price={699} 
+      description="A high-end smartphone with excellent features."
+    />
     </div>
   );
 }
