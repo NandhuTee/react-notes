@@ -6,7 +6,7 @@ import WelcomeMessage from './chapter1-introduction-to-react/props/WelcomeMessag
 import ProductCard from './chapter1-introduction-to-react/props/ProductCard.jsx';
 
 
-function App() {
+function LearnReactChapter1() {
   return (
     <div>
       <HelloWorld />    
@@ -23,4 +23,4 @@ function App() {
   );
 }
 
-export default App;
+export default LearnReactChapter1();
