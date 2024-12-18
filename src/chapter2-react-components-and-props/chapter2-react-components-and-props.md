@@ -10,7 +10,7 @@
     1. **Functional Components**:
         - Simple JavaScript functions that accept props and return JSX.
         - Can use hooks (like useState) to manage state.
-        -	Example:
+        - Example:
 ```jsx
 
 function Welcome(props) {
