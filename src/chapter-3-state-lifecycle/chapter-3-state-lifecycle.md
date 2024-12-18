@@ -175,6 +175,7 @@ useEffect(() => {
 
 - **Class Components**: React's traditional approach to managing component lifecycles. Each lifecycle method corresponds to a specific stage in the component's life, such as mounting, updating, and unmounting.
 - **Functional Components**: With the introduction of hooks (specifically useEffect), functional components now allow you to achieve the same lifecycle behavior in a more concise and readable manner.
+  
 **6\. State Management with Hooks**
 
 - **useEffect for Lifecycle-like Behavior**:  
