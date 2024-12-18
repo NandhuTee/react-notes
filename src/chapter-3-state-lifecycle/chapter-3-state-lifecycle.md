@@ -104,43 +104,77 @@ class Counter extends React.Component {
 | Mutable and dynamic. | Immutable. |
 | Used for interactivity and managing local data. | Used to pass data and functions to child components. |
 
-**5\. Lifecycle of Class Components**
+**5\.  Lifecycle Methods in Functional Components (using Hooks)**
 
-- Class components have lifecycle methods to manage state and behavior during their lifecycle.
-- **Phases of Lifecycle**:
-    1. **Mounting**: Component is created and inserted into the DOM.
-        - constructor(): Initialize state.
-        - componentDidMount(): Perform setup tasks like API calls.
-    2. **Updating**: Component re-renders when props or state change.
-        - componentDidUpdate(prevProps, prevState): Run after every update.
-    3. **Unmounting**: Component is removed from the DOM.
-        - componentWillUnmount(): Cleanup tasks like clearing timers.
-- **Lifecycle Methods Example**:
+Functional components don’t have lifecycle methods like class components. Instead, React provides **Hooks** to handle lifecycle events in functional components. The most commonly used hooks for managing lifecycle behavior are **useEffect** and **useState**.
+
+**1\. Mounting Phase (Equivalent to componentDidMount)**
+
+To replicate the functionality of componentDidMount in a functional component, you can use the useEffect hook with an empty dependency array (\[\]), which ensures that the effect runs only once when the component is mounted.
+
+- **useEffect(() => { ... }, \[\])**:
+  - Executes after the component is rendered and mounted.
+  - Commonly used for data fetching, adding event listeners, etc.
+  - **Example:**
 
 ```jsx
-
-class Timer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { seconds: 0 };
-  }
-
-  componentDidMount() {
-    this.interval = setInterval(() => {
-      this.setState({ seconds: this.state.seconds + 1 });
-    }, 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
-  render() {
-    return <h1>Time: {this.state.seconds}s</h1>;
-  }
-}
+Copy code
+useEffect(() => {
+  fetchData().then(data => setData(data));
+}, []); // Runs only once after the initial render
 ```
 
+**2\. Updating Phase (Equivalent to shouldComponentUpdate, componentDidUpdate)**
+
+The useEffect hook can also be used to replicate the behavior of shouldComponentUpdate and componentDidUpdate. If you pass specific dependencies to useEffect, the effect will re-run whenever one of the dependencies changes.
+
+- **useEffect(() => { ... }, \[dependency\])**:
+  - This hook will run every time the value of dependency changes.
+  - **Example:**
+
+```js
+Copy code
+useEffect(() => {
+  console.log('Count updated:', count);
+}, [count]); // Runs every time `count` changes
+```
+
+To achieve the effect of **shouldComponentUpdate** (deciding whether to re-render), you can compare the current state with the previous state inside the useEffect.
+
+**3\. Unmounting Phase (Equivalent to componentWillUnmount)**
+
+To replicate the componentWillUnmount method in a functional component, you can return a cleanup function inside the useEffect hook. This cleanup function will be called when the component is about to unmount.
+
+- **Cleanup in useEffect**:
+  - Returning a function from useEffect will act as a cleanup when the component unmounts or when dependencies change.
+  - **Example:**
+
+```js
+Copy code
+useEffect(() => {
+  const timer = setInterval(() => console.log('Tick'), 1000);
+
+  return () => {
+    clearInterval(timer); // Cleanup when the component unmounts
+  };
+}, []); // Runs once after the initial render
+```
+**Comparison of Class Components and Functional Components**
+
+| **Aspect** | **Class Components** | **Functional Components** |
+| --- | --- | --- |
+| **Mounting** | componentDidMount() | useEffect() (with empty dependency array) |
+| **Updating** | shouldComponentUpdate(), componentDidUpdate() | useEffect() with dependencies |
+| **Unmounting** | componentWillUnmount() | useEffect() return cleanup function |
+| **State Management** | this.state and this.setState() | useState() |
+| **Side Effects** | componentDidMount(), componentDidUpdate() | useEffect() |
+| **Code Structure** | Object-oriented with this keyword | Functional, no this required |
+| **Performance Optimization** | shouldComponentUpdate() | useMemo() and useCallback() for optimization |
+
+**Summary**
+
+- **Class Components**: React's traditional approach to managing component lifecycles. Each lifecycle method corresponds to a specific stage in the component's life, such as mounting, updating, and unmounting.
+- **Functional Components**: With the introduction of hooks (specifically useEffect), functional components now allow you to achieve the same lifecycle behavior in a more concise and readable manner.
 **6\. State Management with Hooks**
 
 - **useEffect for Lifecycle-like Behavior**:  
@@ -148,7 +182,6 @@ class Timer extends React.Component {
 - **Example**:
 
 ```jsx
-
 import React, { useState, useEffect } from 'react';
 
 function Timer() {
@@ -163,6 +196,9 @@ function Timer() {
   }, []);
 
   return <h1>Time: {seconds}s</h1>;
+}
+
+export default Timer;
 ```
 
 **7\. Common Patterns with State**
