@@ -191,10 +191,11 @@ function Profile() {
 
 ### **Summary**
 *
-| **Feature**           |     **Purpose**                                   |   **Example Usage**                       |\n|--------------------|-------------------------------------------|-----------------------------------------|\n| 
-`useState`         | Local state management.                   | Counter component.                     |\n| 
-`useReducer`       | Complex state logic or interdependent state. | Multi-action counter component.         |\n| 
-Lifting State Up   | Sharing state between child components.     | Parent and Child components.            |\n| 
-Context API        | Global state management.                    | Authentication, theming, localization.  |\n\n
+| **Feature**           |     **Purpose**                                   |   **Example Usage**         |              
+|--------------------|-------------------------------------------|-----------------------------------------|
+|`useState`         | Local state management.                   | Counter compoter component.      |               
+|`useReducer`       | Complex state logic or interdependent state. | Multi-action counnent.      |   
+|Lifting State Up   | Sharing state between child components.     | Parent and Child components.   |         
+|Context API        | Global state management.                    | Authentication, theming, localization.  |
 
 React provides various tools for state management, each suited to different scenarios. Choosing the right approach ensures a clean, maintainable, and scalable application."***
