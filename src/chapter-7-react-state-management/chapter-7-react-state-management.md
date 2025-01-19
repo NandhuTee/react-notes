@@ -193,7 +193,7 @@ function Profile() {
 *
 | **Feature**           |     **Purpose**                                   |   **Example Usage**         |              
 |--------------------|-------------------------------------------|-----------------------------------------|
-|`useState`         | Local state management.                   | Counter compoter component.      |               
+|`useState`         | Local state management.                   | Counter  component.      |               
 |`useReducer`       | Complex state logic or interdependent state. | Multi-action counnent.      |   
 |Lifting State Up   | Sharing state between child components.     | Parent and Child components.   |         
 |Context API        | Global state management.                    | Authentication, theming, localization.  |
