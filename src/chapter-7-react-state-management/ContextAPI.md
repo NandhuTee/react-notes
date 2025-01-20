@@ -166,3 +166,5 @@ In the second example, the Child component can directly access the theme from th
 *   **Consuming context**: Use the useContext hook (for function components) or Context.Consumer (for class components) to access the context value.
     
 *   **Prevents props drilling**: Context allows you to avoid passing props down through intermediate components, making the code cleaner and easier to maintain.
+*   
+[Read about the Context API in React](https://www.freecodecamp.org/news/context-api-in-react/)
