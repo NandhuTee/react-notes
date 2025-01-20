@@ -1,0 +1,22 @@
+/* src/index.css */
+.panel-dark {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .button-dark {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button-dark:hover {
+    background-color: #777;
+  }
+  
